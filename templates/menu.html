@@ -5,6 +5,23 @@
     <title>Menu</title>
   </head>
   <body>
+    <style>
+        .mytitle{
+            color:peru;
+            font-size:200px;
+        }
+        .center{
+            text-align:center;
+        }
+        .mybutton{
+            color: rgb(70, 47, 21);
+            width:350px;
+            height:150px;
+            border:10px #f05a3f dashed;
+            background-color:rgb(130, 172, 47);
+            font-size:100px;
+        }
+    </style>
     {% with messages = get_flashed_messages() %}
     {% if messages %}
     <ul class="flash">
@@ -14,6 +31,27 @@
     </ul>
     {% endif %}
     {% endwith %}
-    hello, {{ username }} ,Welcome to menu.
+    <form method='post' action={{ url_for( 'prepare' )}}>
+        <div class="center">
+            <h1 class="mytitle">Welcome to Menu</h1></div>
+        <div class="center">
+            <p>
+                <button type='submit' class="mybutton">準備</button>
+            </p></div>
+    </form>
+    <form method='post' action={{ url_for( 'implement' )}}>
+        <div class="center">
+            <p>
+                <button type='submit' class="mybutton">執行</button>
+            </p>
+        </div>
+    </form>
+    <form method='post' action={{ url_for( 'review' )}}>
+        <div class="center">
+            <p>
+                <button type='submit' class="mybutton">檢討</button>
+            </p>
+        </div>
+    </form>
 </body>
 </html>
